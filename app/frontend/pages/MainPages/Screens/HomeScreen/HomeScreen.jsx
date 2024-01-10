@@ -1,9 +1,8 @@
-import { View, Text } from 'react-native';
-
+import { View, Text } from 'react-native'
 function HomeScreen() {
   return (
-    <View>
-      <Text>Home Screen</Text>
+    <View style = {{ height: '100%'}}>
+      <Text>Homeaa Screen</Text>
     </View>
   )
 }

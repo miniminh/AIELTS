@@ -1,7 +1,7 @@
 const defaultTheme = {
   colors: {
-    primary: '#3498db',
-    secondary: '#2ecc71',
+    primary: '#1F1F39',
+    secondary: '#3D5CFF',
 
   },
   typography: {

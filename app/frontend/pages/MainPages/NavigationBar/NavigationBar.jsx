@@ -8,12 +8,16 @@ import HomeScreen from '../Screens/HomeScreen/HomeScreen';
 import DiscoverScreen from '../Screens/DiscoverScreen/DiscoverScreen';
 import AccountScreen from '../Screens/AccountScreen/AccountScreen';
 
+import defaultTheme from '../../../theme';
 
 const Tab = createBottomTabNavigator();
-
+const navigationTheme = {
+  ...defaultTheme,
+}
 export default function NavigationBar() {
   return (
-    <NavigationContainer>
+    <View style = {{flex: 1}}> 
+    <NavigationContainer theme = {navigationTheme}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -30,7 +34,7 @@ export default function NavigationBar() {
             }
             return (
               <View style = {styles.icon}>
-                <Ionicons name={iconName} size={size} color={color} />
+                <Ionicons name={iconName} size={size} color={color}/>
               </View>
             );
           },
@@ -38,8 +42,9 @@ export default function NavigationBar() {
         })}
         tabBarOptions={{
           activeTintColor: 'blue', // Change the active icon color
-          inactiveTintColor: 'gray', // Change the inactive icon color
+          inactiveTintColor: 'gray', 
         }}
+        
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Learn" component={LearnScreen} />
@@ -47,6 +52,8 @@ export default function NavigationBar() {
         <Tab.Screen name="Account" component={AccountScreen} />
       </Tab.Navigator>
     </NavigationContainer>
+    </View>
+    
   );
 }
 
