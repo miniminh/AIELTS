@@ -1,10 +1,10 @@
 import requests
 
-url = "localhost:14204/uploadfile/"
+url = "http://localhost:14024/uploadfile/"
 
 payload = {}
 files=[
-  ('input',('jfk.wav',open('/X:/PROJECT/AIELTS/AIELTS/api/whisper.cpp/samples/jfk.wav','rb'),'audio/wav'))
+  ('input',('tester.wav',open('tester.mp3','rb'),'audio/wav'))
 ]
 headers = {}
 
