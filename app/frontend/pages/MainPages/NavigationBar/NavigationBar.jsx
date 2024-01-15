@@ -15,7 +15,7 @@ const navigationTheme = {
   ...defaultTheme,
 }
 export default function NavigationBar() {
-  return (
+  return ( 
     <View style = {{flex: 1}}> 
     <NavigationContainer theme = {navigationTheme}>
       <Tab.Navigator
@@ -27,9 +27,9 @@ export default function NavigationBar() {
               iconName = 'home'; // Replace this with your desired icon name
             } else if (route.name === 'Account') {
               iconName = 'person-sharp'; // Replace this with another icon name
-            } else if (route.name == 'Discover') {
+            } else if (route.name === 'Discover') {
               iconName = 'rocket';
-            } else if (route.name == 'Learn') {
+            } else if (route.name === 'Learn') {
               iconName = 'book-sharp';
             }
             return (
@@ -44,7 +44,6 @@ export default function NavigationBar() {
           activeTintColor: 'blue', // Change the active icon color
           inactiveTintColor: 'gray', 
         }}
-        
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Learn" component={LearnScreen} />
