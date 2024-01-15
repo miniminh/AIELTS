@@ -1,4 +1,4 @@
-import openvino as ov
+from openvino.runtime import Core 
 
-core = ov.Core()
+core = Core()
 compiled_model = core.compile_model(model, "CPU")

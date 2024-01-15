@@ -50,5 +50,6 @@ if __name__ == '__main__':
     os.system("mkdir uploads")
     os.system("sed -i 's/\r$//' whisper.cpp/models/download-ggml-model.sh")
     os.system("bash whisper.cpp/models/download-ggml-model.sh tiny.en")
-    os.system("cd whisper.cpp && make")
+    os.system("cd whisper.cpp/models && python convert-whisper-to-openvino.py --model base.en")
+    os.system("cd whisper.cpp && cmake -B build -DWHISPER_OPENVINO=1 && cmake --build build -j --config Release")
     run('app:app', host='0.0.0.0', port=14024, reload=True)
