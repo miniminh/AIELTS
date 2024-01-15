@@ -1,12 +1,13 @@
 version: '3.2'
 services:
   whisper.cpp:
-    container_name: whisper.cpp
+    container_name: llm-grader
+    image: llm-grader
     build: .
     ports:
-      - "14024:14024"
+      - "14023:14023"
     volumes:
       - ./uploads:/code/uploads
     restart: always
 volumes:
-  public:
+  uploads:
