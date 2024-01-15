@@ -1,23 +1,15 @@
 import { StyleSheet, View, Text} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import LearnScreen from '../Screens/LearnScreen/LearnScreen';
-import HomeScreen from '../Screens/HomeScreen/HomeScreen';
 import DiscoverScreen from '../Screens/DiscoverScreen/DiscoverScreen';
 import AccountScreen from '../Screens/AccountScreen/AccountScreen';
-
-import defaultTheme from '../../../theme';
+import StackNavigatorHome from './StackNavigatorHome';
 
 const Tab = createBottomTabNavigator();
-const navigationTheme = {
-  ...defaultTheme,
-}
+
 export default function NavigationBar() {
   return ( 
-    <View style = {{flex: 1}}> 
-    <NavigationContainer theme = {navigationTheme}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -45,14 +37,11 @@ export default function NavigationBar() {
           inactiveTintColor: 'gray', 
         }}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Home" component={StackNavigatorHome} />
         <Tab.Screen name="Learn" component={LearnScreen} />
         <Tab.Screen name="Discover" component={DiscoverScreen} />
         <Tab.Screen name="Account" component={AccountScreen} />
       </Tab.Navigator>
-    </NavigationContainer>
-    </View>
-    
   );
 }
 

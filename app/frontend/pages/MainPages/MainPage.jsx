@@ -1,12 +1,18 @@
-import NavigationBar from "./NavigationBar/NavigationBar";
-import { View, StyleSheet } from "react-native";
-import Header from "../../components/Header/Header";
+import { View } from "react-native";
 import defaultTheme from "../../theme";
+import NavigationBar from "./NavigationBar/NavigationBar";
+
+import { NavigationContainer } from '@react-navigation/native';import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack';
+const navigationTheme = {
+  ...defaultTheme,
+}
 export default function MainPage() {
   return (
     <View style = {{flex: 1, backgroundColor: defaultTheme.colors.primary}}>
-      <Header />
-      <NavigationBar/>
+      <NavigationContainer theme = {navigationTheme}> 
+        <NavigationBar/>
+      </NavigationContainer>
     </View>
   );
 }
