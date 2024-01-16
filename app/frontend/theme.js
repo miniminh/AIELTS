@@ -2,6 +2,7 @@ const defaultTheme = {
   colors: {
     primary: '#1F1F39',
     secondary: '#3D5CFF',
+    word : 'white'
   },
   typography: {
     small: 16,
@@ -16,6 +17,9 @@ const defaultTheme = {
     bold: 600,
     semibold: 500,
     normal: 400
+  },
+  header: {
+    height: 65
   }
 };
 

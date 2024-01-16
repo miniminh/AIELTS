@@ -1,9 +1,9 @@
 import { View } from "react-native";
 import defaultTheme from "../../theme";
 import NavigationBar from "./NavigationBar/NavigationBar";
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
 
-import { NavigationContainer } from '@react-navigation/native';import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack';
 const navigationTheme = {
   ...defaultTheme,
 }

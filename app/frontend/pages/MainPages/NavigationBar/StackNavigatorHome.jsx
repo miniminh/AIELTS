@@ -2,7 +2,7 @@
 import React from 'react'
 import ReadingPage from '../../ReadingPage/ReadingPage';
 import ListeningPage from '../../ListeningPage/ListeningPage';
-import WritingPage from '../../WritingPage/WritingPage';
+import StackNavigatorWriting from '../../WritingPage/StackNavigatorWriting/StackNavigatorWriting';
 import SpeakingPage from '../../SpeakingPage/SpeakingPage';
 import HomeScreen from '../Screens/HomeScreen/HomeScreen';
 
@@ -16,7 +16,7 @@ export default function StackNavigatorHome() {
       <Stack.Screen name = 'HomeScreen' component = {HomeScreen} options = {{headerShown: false}}/>
       <Stack.Screen name = 'Reading' component = {ReadingPage} />
       <Stack.Screen name = 'Listening' component = {ListeningPage} />
-      <Stack.Screen name = 'Writing' component = {WritingPage} />
+      <Stack.Screen name = 'Writing' component = {StackNavigatorWriting} options = {{headerShown: false}}/>
       <Stack.Screen name = 'Speaking' component = {SpeakingPage} />
     </Stack.Navigator>
   )

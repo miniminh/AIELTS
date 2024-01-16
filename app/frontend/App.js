@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     flex: 1,
     backgroundColor: defaultTheme.colors.secondary,
-    fontSize: defaultTheme.typography.fontSize
+    fontSize: defaultTheme.typography.fontSize,
   },
 });

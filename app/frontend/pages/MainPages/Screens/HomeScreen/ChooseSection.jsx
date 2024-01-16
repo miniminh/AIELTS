@@ -54,6 +54,7 @@ const Section = ({iconName, sectionName}) => {
           </View>
         </TouchableOpacity>
       </View>
+      
     </View>
   )
 }
@@ -65,6 +66,7 @@ const ChooseSection = ({color}) => {
       {sections.map((section, index) => (
         <Section key={index} iconName={section.icon} sectionName={section.section} />
       ))}
+      
     </View>
   )
 }

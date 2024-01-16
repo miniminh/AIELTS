@@ -8,14 +8,14 @@ const data = {
 }
 function HomeScreen() {
   return (
-    <View>
+    <View style = {{height: '100%'}}> 
       <Header />
       <ScrollView>
-      <View style = {{ height: '100%', padding: 8 }}>
-        <Welcome userInformation={data} color = "white" /> 
-        <ChooseSection color = "white"/>
-      </View>
-    </ScrollView>
+        <View style = {{padding: 8 }}>
+          <Welcome userInformation={data} color = "white" /> 
+          <ChooseSection color = "white"/>
+        </View>
+      </ScrollView>
     </View>
   )
 }

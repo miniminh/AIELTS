@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const ReadingPage = () => {
+const WritingTask1 = () => {
   return (
-    <View> 
-      <Text>ReadingPage</Text>
+    <View>
+      <Text>WritingTask1</Text>
     </View>
   )
 }
 
-export default ReadingPage
+export default WritingTask1

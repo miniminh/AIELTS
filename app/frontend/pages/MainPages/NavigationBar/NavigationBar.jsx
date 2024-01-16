@@ -9,39 +9,37 @@ import StackNavigatorHome from './StackNavigatorHome';
 const Tab = createBottomTabNavigator();
 
 export default function NavigationBar() {
-  return ( 
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            // Define the icon for each tab based on the route name
-            if (route.name === 'Home') {
-              iconName = 'home'; // Replace this with your desired icon name
-            } else if (route.name === 'Account') {
-              iconName = 'person-sharp'; // Replace this with another icon name
-            } else if (route.name === 'Discover') {
-              iconName = 'rocket';
-            } else if (route.name === 'Learn') {
-              iconName = 'book-sharp';
-            }
-            return (
-              <View style = {styles.icon}>
-                <Ionicons name={iconName} size={size} color={color}/>
-              </View>
-            );
-          },
-          headerShown: false,
-        })}
-        tabBarOptions={{
-          activeTintColor: 'blue', // Change the active icon color
-          inactiveTintColor: 'gray', 
-        }}
-      >
-        <Tab.Screen name="Home" component={StackNavigatorHome} />
-        <Tab.Screen name="Learn" component={LearnScreen} />
-        <Tab.Screen name="Discover" component={DiscoverScreen} />
-        <Tab.Screen name="Account" component={AccountScreen} />
-      </Tab.Navigator>
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          // Define the icon for each tab based on the route name
+          if (route.name === 'Home') {
+            iconName = 'home'; // Replace this with your desired icon name
+          } else if (route.name === 'Account') {
+            iconName = 'person-sharp'; // Replace this with another icon name
+          } else if (route.name === 'Discover') {
+            iconName = 'rocket';
+          } else if (route.name === 'Learn') {
+            iconName = 'book-sharp';
+          }
+          return (
+            <View style={styles.icon}>
+              <Ionicons name={iconName} size={size} color={color} />
+            </View>
+          );
+        },
+        headerShown: false,
+        tabBarActiveTintColor: 'blue', // Change the active icon color
+        tabBarInactiveTintColor: 'gray',
+      })}
+    >
+      <Tab.Screen name="Home" component={StackNavigatorHome} />
+      <Tab.Screen name="Learn" component={LearnScreen} />
+      <Tab.Screen name="Discover" component={DiscoverScreen} />
+      <Tab.Screen name="Account" component={AccountScreen} />
+    </Tab.Navigator>
   );
 }
 
