@@ -2,11 +2,11 @@ import { View, Text,  TouchableOpacity, Alert } from 'react-native'
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons'
 import React from 'react'
-
+import defaultTheme from '../../../theme';
 const GoalButton = () => {
   const onPress = () => Alert.alert("Goal")
   return (
-    <TouchableOpacity onPress = {onPress} style = {{backgroundColor: 'orange'}}>
+    <TouchableOpacity onPress = {onPress} style = {{backgroundColor: defaultTheme.colors.button}}>
       <Icon name = "fire" size = {30} style = {{padding: 4}} />
     </TouchableOpacity>
   )
@@ -15,7 +15,7 @@ const GoalButton = () => {
 const StreakButton = () => {
   const onPress = () => {Alert.alert("Streak")}
   return (
-    <TouchableOpacity onPress = {onPress} style = {{backgroundColor: 'orange'}}>
+    <TouchableOpacity onPress = {onPress} style = {{backgroundColor: defaultTheme.colors.button}}>
       <IconMaterial name = "star-outline" size = {30} style = {{padding: 4}} />
     </TouchableOpacity>
   )

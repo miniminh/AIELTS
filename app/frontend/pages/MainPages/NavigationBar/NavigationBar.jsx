@@ -5,7 +5,7 @@ import LearnScreen from '../Screens/LearnScreen/LearnScreen';
 import DiscoverScreen from '../Screens/DiscoverScreen/DiscoverScreen';
 import AccountScreen from '../Screens/AccountScreen/AccountScreen';
 import StackNavigatorHome from './StackNavigatorHome';
-
+import defaultTheme from '../../../theme';
 const Tab = createBottomTabNavigator();
 
 export default function NavigationBar() {
@@ -31,7 +31,7 @@ export default function NavigationBar() {
           );
         },
         headerShown: false,
-        tabBarActiveTintColor: 'blue', // Change the active icon color
+        tabBarActiveTintColor: defaultTheme.colors.secondary, // Change the active icon color
         tabBarInactiveTintColor: 'gray',
       })}
     >
@@ -44,16 +44,7 @@ export default function NavigationBar() {
 }
 
 const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#7F5DF0',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5,
-  },
+
   icon: {
     paddingTop: 10
   },

@@ -15,15 +15,26 @@ const HeaderLearningPage = ({name}) => {
       justifyContent: 'space-between',
       alignItems: 'center',
       backgroundColor: defaultTheme.colors.secondary,
-      height: defaultTheme.header.height
+      height: defaultTheme.header.height,
+      paddingLeft: 8,
+      paddingRight: 8
     }}> 
-    <TouchableOpacity onPress = {handleGoBack}>
-        <Ionicons name="caret-back-sharp" size={24} color="black" />
+    <TouchableOpacity onPress = {handleGoBack} style = {{ backgroundColor: 'white', borderRadius: 90}} >
+      <View style = {{padding: 4}}>
+        <Ionicons name="caret-back-sharp" size={24} color="black"   />
+      </View>
+
     </TouchableOpacity>
-      <Text style={{ flex: 1, textAlign: 'center' }}>
+      <Text style = {{ 
+        flex: 1,
+        textAlign: 'center', 
+        fontWeight: defaultTheme.fontWeight.semibold, 
+        color: defaultTheme.colors.word, 
+        fontSize: defaultTheme.typography.medium
+      }}>
         {name}
       </Text>
-      <View style={{ width: 24 }} /> 
+      <View style={{ width: 32 }} /> 
     </View>
   )
 }

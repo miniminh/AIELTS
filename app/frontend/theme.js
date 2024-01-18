@@ -2,7 +2,8 @@ const defaultTheme = {
   colors: {
     primary: '#1F1F39',
     secondary: '#3D5CFF',
-    word : 'white'
+    word : 'white',
+    button: 'orange'
   },
   typography: {
     small: 16,
@@ -16,7 +17,8 @@ const defaultTheme = {
   fontWeight: {
     bold: 600,
     semibold: 500,
-    normal: 400
+    normal: 400,
+    note: 200
   },
   header: {
     height: 65

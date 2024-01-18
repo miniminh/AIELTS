@@ -39,16 +39,16 @@ const Section = ({iconName, sectionName}) => {
     }
   }
   return (
-    <View style = {{display: 'flex', flexDirection: 'row', width: '100%', backgroundColor: 'blue', justifyContent: 'space-between', alignItems: 'center', borderRadius: defaultTheme.border.radius}}>
+    <View style = {{display: 'flex', flexDirection: 'row', width: '100%', backgroundColor: defaultTheme.colors.secondary, justifyContent: 'space-between', alignItems: 'center', borderRadius: defaultTheme.border.radius}}>
       <View style = {{display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 16, gap: 8}}>
         <Ionicons name= {iconName} size={30} color="white"/>
-        <Text style = {{color: 'white', fontWeight: defaultTheme.fontWeight.semibold, fontSize: defaultTheme.typography.medium}}>{sectionName}</Text>
+        <Text style = {{color: defaultTheme.colors.word, fontWeight: defaultTheme.fontWeight.semibold, fontSize: defaultTheme.typography.medium}}>{sectionName}</Text>
       </View>
 
       <View>
         <TouchableOpacity onPress = {() => handlePress(sectionName)}>      
           <View style={{ padding: 10 }}>
-            <View style = {{backgroundColor: 'orange', borderRadius: 90, padding: 10}}>
+            <View style = {{backgroundColor: defaultTheme.colors.button, borderRadius: 90, padding: 10}}>
               <Ionicons name="caret-forward-sharp" size={24} color="white"/>
             </View>
           </View>
