@@ -22,6 +22,10 @@ const defaultTheme = {
   },
   header: {
     height: 65
+  },
+  basic: {
+    padding: 8,
+    gap: 16
   }
 };
 

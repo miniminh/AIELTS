@@ -9,7 +9,7 @@ const StackNavigatorWriting = () => {
   return (
     <StackWriting.Navigator >
       <StackWriting.Screen name = 'WritingPage' component = {WritingPage} options = {{headerShown: false}}/>
-      <StackWriting.Screen name = 'WritingTask1' component = {WritingTask1} />
+      <StackWriting.Screen name = 'WritingTask1' component = {WritingTask1} options = {{headerShown: false }}/>
       <StackWriting.Screen name = 'WritingTask2' component = {WritingTask2} />
     </StackWriting.Navigator>
   )
