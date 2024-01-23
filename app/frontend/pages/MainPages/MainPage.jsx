@@ -5,7 +5,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 
 const navigationTheme = {
-  ...defaultTheme,
+  ...defaultTheme
 }
 export default function MainPage() {
   return (
