@@ -4,7 +4,7 @@ services:
     image: mongo:latest
     container_name: AIELTS_database
     ports:
-      - "27017:27017"
+      - "2204:27017"
     volumes:
       - mongodb-data:/AIELTS/database
 volumes:

@@ -1,14 +1,12 @@
 package main
 
 import (
-	"context"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/database"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/user"
 	"os"
 	"log"
-	"fmt"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func init() {
@@ -24,32 +22,11 @@ func init() {
 			log.Fatal("No setting in .env found in Release mode!")
 	   	}
 	}
-	LoadDatabase()
-}
-
-func LoadDatabase() {
-	clientOptions := options.Client().ApplyURI(os.Getenv("DB_URI"))
-
-	client, err := mongo.Connect(context.TODO(), clientOptions)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = client.Ping(context.TODO(), nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Connected to MongoDB!")
-
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			log.Fatal(err)
-		}
-	}()
 }
 
 func main() {
 	router := gin.Default()
+	database.Connect()
+	user.CreateRouting(router)
 	router.Run()
 }
