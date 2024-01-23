@@ -26,13 +26,7 @@ func Connect() {
 
 	LoadDatabase(client)
 
-	fmt.Println("[Database-LOG] Connected to MongoDB!\n")
-
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			log.Fatal(err)
-		}
-	}()
+	fmt.Println("[Database-LOG] Connected to MongoDB!")
 }
 
 func LoadDatabase(client *mongo.Client) {

@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/database"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/user"
 	"os"
 	"log"
 )
@@ -26,5 +27,6 @@ func init() {
 func main() {
 	router := gin.Default()
 	database.Connect()
+	user.CreateRouting(router)
 	router.Run()
 }
