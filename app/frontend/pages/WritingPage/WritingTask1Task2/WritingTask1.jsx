@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, {useState} from 'react'
 import HeaderLearningPage from '../../../components/Header/HeaderLearningPage'
 import Header from '../../../components/Header/Header'
+import { useNavigation } from '@react-navigation/native'
 import defaultTheme from '../../../theme'
 const mockdata = {
  data: [
@@ -22,27 +23,35 @@ const mockdata = {
 
 const ChooseExam = ({data}) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const navigation = useNavigation();
   const toggleExpand = () => {
     setIsExpanded((prev) => (!prev));
   };
   return (
     
-    <View style = {{ flexDirection: 'row', justifyContent: 'flex-end', width: '100%', flex: 1}}>
-      <View style = {{height: '100%', flex: 1}}> 
+    <View>
+      <TouchableOpacity 
+        style = {{flex: 1, flexDirection: 'row'}} 
+        onPress = {() =>navigation.navigate('WritingWorkspace',
+        {
+          exam: data
+        })}>
+        <View style = {{height: '100%', flex: 1}}> 
 
         <Text numberOfLines={isExpanded ? 0 : 2} style = {{fontSize: defaultTheme.typography.medium, color: defaultTheme.colors.word, fontWeight: defaultTheme.fontWeight.note}}>{data.test}</Text>  
         <TouchableOpacity onPress={toggleExpand}>
           <Text style={{ color: 'blue' }}>{isExpanded ? 'Return' : 'Read more'}</Text>
         </TouchableOpacity>
           
-      </View>
+        </View>
 
-      <View>
-      <Image style = {{width: 90, height: 90}}
+        <View>
+        <Image style = {{width: 90, height: 90}}
             source = {{uri: data.image[0]}}
-      />
-      </View>
+        />
+        </View>
+      </TouchableOpacity>
+
     </View>
   )
 }

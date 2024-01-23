@@ -25,7 +25,11 @@ const defaultTheme = {
   },
   basic: {
     padding: 8,
-    gap: 16
+    gap: 8
+  },
+  defaultPage: {
+    backgroundColor: '#1F1F39',
+    height: '100%'
   }
 };
 
