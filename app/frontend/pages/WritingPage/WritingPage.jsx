@@ -64,7 +64,6 @@ const WritingPage = () => {
           <ChooseWritingSection key={index} sectionWriting={section.name} contentWriting={section.content} />
         ))}
       </View>
- 
     </View>
   )
 }

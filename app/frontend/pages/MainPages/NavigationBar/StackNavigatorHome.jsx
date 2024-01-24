@@ -17,7 +17,7 @@ export default function StackNavigatorHome() {
       <Stack.Screen name = 'Reading' component = {ReadingPage} options = {{headerShown: false}}/>
       <Stack.Screen name = 'Listening' component = {ListeningPage} />
       <Stack.Screen name = 'Writing' component = {StackNavigatorWriting} options = {{headerShown: false}}/>
-      <Stack.Screen name = 'Speaking' component = {SpeakingPage} />
+      <Stack.Screen name = 'Speaking' component = {SpeakingPage} options = {{headerShown: false}} />
     </Stack.Navigator>
   )
 }
