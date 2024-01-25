@@ -36,22 +36,27 @@ export default function SpeakingPage() {
       file: recording.getURI()
     });
     setRecordings(allRecordings);
+    console.log('URI', recording.getURI())
     sendRecordingToBackend(recording.getURI());
 
   }
   async function sendRecordingToBackend(audioUri) {
+    let apiUrl = 'http://192.168.1.6:8082/upload_audio'
+    let uriParts = audioUri.split('.')
+    let fileType = uriParts[uriParts.length - 1]
     try {
       const formData = new FormData();
       formData.append('audio', {
         uri: audioUri,
-        type: 'audio/mp3', // Adjust the type based on your audio format
-        name: 'recording.mp3', // Adjust the name accordingly
+        type: `audio/x-${fileType}`, // Adjust the type based on your audio format
+        name: `recording.${fileType}`, // Adjust the name accordingly
       });
 
       console.log('Sending recording to backend:', formData);
 
-      const response = await axios.post('http://192.168.1.2:8082/upload_audio', formData, {
+      const response = await axios.post(apiUrl, formData, {
         headers: {
+          'Accept': 'application/json',
           'Content-Type': 'multipart/form-data',
         },
       });
