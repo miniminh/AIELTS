@@ -1,0 +1,32 @@
+version: '1'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: AIELTS_database
+    ports:
+      - "2204:27017"
+    volumes:
+      - mongodb-data:/AIELTS/database
+    restart: unless-stopped
+
+  server:
+    build:
+      context: server
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+
+  nginx:
+    build:
+      context: proxy
+    ports:
+      - "1402:1402"
+    depends_on:
+      - server
+    restart: unless-stopped
+  
+volumes:
+  mongodb-data:
