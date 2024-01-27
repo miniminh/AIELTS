@@ -1,13 +1,12 @@
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, {useState} from 'react'
 import HeaderLearningPage from '../../../components/Header/HeaderLearningPage'
-import Header from '../../../components/Header/Header'
 import { useNavigation } from '@react-navigation/native'
 import defaultTheme from '../../../theme'
 const mockdata = {
  data: [
   {
-    test: 'The graph below shows the average monthly change in the prices of three metals during 2014.scaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    test: 'The graph below shows the average monthly change in the prices of three metals during 2014.',
     image : [
       'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_LineGraph_202.png'
     ]
@@ -46,9 +45,11 @@ const ChooseExam = ({data}) => {
         </View>
 
         <View>
-        <Image style = {{width: 90, height: 90}}
+          {data.image && (        
+          <Image style = {{width: 90, height: 90}}
             source = {{uri: data.image[0]}}
-        />
+        />) }
+
         </View>
       </TouchableOpacity>
 
