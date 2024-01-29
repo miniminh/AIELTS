@@ -27,7 +27,6 @@ const ChooseExam = ({data}) => {
     setIsExpanded((prev) => (!prev));
   };
   return (
-    
     <View>
       <TouchableOpacity 
         style = {{flex: 1, flexDirection: 'row'}} 
