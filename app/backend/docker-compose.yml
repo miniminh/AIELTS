@@ -18,15 +18,6 @@ services:
     restart: unless-stopped
     depends_on:
       - mongodb
-
-  nginx:
-    build:
-      context: proxy
-    ports:
-      - "1402:1402"
-    depends_on:
-      - server
-    restart: unless-stopped
   
 volumes:
   mongodb-data:
