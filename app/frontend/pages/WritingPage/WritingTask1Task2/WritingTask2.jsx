@@ -6,11 +6,16 @@ import defaultTheme from '../../../theme'
 const mockdata = {
  data: [
   {
-    test: 'The graph below shows the average monthly change in the prices of three metals during 2014.',
+    test: "In many countries around the world, rural people are moving to cities, so the population in the countryside is decreasing. Do you think this is a positive or a negative development?",
   },
   {
-    test: 'The chart below shows the average monthly change in the prices of three metals during 2014.',
-
+    test: "Some university students want to learn about other subjects in addition to their main subjects. Others believe it is more important to give all their time and attention to studying for a qualification. Discuss both these views and give your own opinion.",
+  },
+  {
+    test: "Some people believe that social media sites, such as Facebook or Twitter, have a negative impact on young people and their ability to form personal relationships. Others believe that these sites bring people together in a beneficial way. Discuss both these views and give your own opinion."
+  },
+  {
+    test: "Some people feel that the legal age at which people can marry should be at least 21. To what extent do you agree or disagree?"
   }
  ]
 }

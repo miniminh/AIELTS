@@ -7,7 +7,7 @@ import StackNavigatorLogin from './pages/LoginPage/StackNavigatorLogin';
 export default function App() {
   return (
     <View style = {styles.container}>
-     <StackNavigatorLogin />
+      <MainPage />
     </View>
   );
 }

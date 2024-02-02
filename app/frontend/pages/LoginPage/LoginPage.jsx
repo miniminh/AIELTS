@@ -20,12 +20,13 @@ const LoginPage = () => {
   const [backendMessage, setBackendMessage] = useState("");
 
   const handleLogin = async () => {
-    const apiURL = 'http://192.168.1.10:5000/login'
+    const apiURL = 'http://localhost:8080/auth/login'
+    const userData = {
+      username: username,
+      password: password
+    }
     try {
-      const response = await axios.post(apiURL, {
-        username,
-        password,
-      });
+      const response = await axios.post(apiURL, userData);
 
       if (response.status === 200) {
         setBackendMessage(response.data.message)

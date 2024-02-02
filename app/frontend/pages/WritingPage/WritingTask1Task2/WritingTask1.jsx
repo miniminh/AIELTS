@@ -12,9 +12,29 @@ const mockdata = {
     ]
   },
   {
-    test: 'The chart below shows the average monthly change in the prices of three metals during 2014.',
+    test: 'The chart shows the average number of hours each day that Chinese, American, Turkish and Brazilian tourists spent doing leisure activities while on holiday in Greece in August 2019.',
     image : [
-      'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_LineGraph_202.png'
+      'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_BarChart_201.png'
+    ]
+  },
+  {
+    test: 'The pie charts below compare the proportion of energy capacity in gigawatts (GW) in 2015 with the predictions for 2040. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.',
+    image : [
+      'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_PieChart-200.png'
+    ]
+  },
+  {
+    test: 'The maps show Pacific Railway Station station in 1998 and now. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.',
+    image : [
+      'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_Map-195-1.png',
+      'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_Map-195-2.png'
+    ]
+  },
+  {
+    test: 'The tables below show people(\')s reasons for giving up smoking, and when they intend to give up. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.',
+    image : [
+      'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_Table-188_1.png',
+      'https://www.ielts-writing.info/images/graphs/IELTS_Writing_Task_1_Table-188_2.png'
     ]
   }
  ]
@@ -38,7 +58,7 @@ const ChooseExam = ({data}) => {
 
         <Text numberOfLines={isExpanded ? 0 : 2} style = {{fontSize: defaultTheme.typography.medium, color: defaultTheme.colors.word, fontWeight: defaultTheme.fontWeight.note}}>{data.test}</Text>  
         <TouchableOpacity onPress={toggleExpand}>
-          <Text style={{ color: 'blue' }}>{isExpanded ? 'Return' : 'Read more'}</Text>
+          <Text style={{ color: 'orange' }}>{isExpanded ? 'Return' : '...'}</Text>
         </TouchableOpacity>
           
         </View>

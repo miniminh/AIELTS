@@ -66,6 +66,8 @@ const ChooseSection = ({color}) => {
       {sections.map((section, index) => (
         <Section key={index} iconName={section.icon} sectionName={section.section} />
       ))}
+
+      
       
     </View>
   )

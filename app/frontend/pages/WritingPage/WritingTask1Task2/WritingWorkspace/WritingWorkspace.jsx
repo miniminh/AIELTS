@@ -3,16 +3,30 @@ import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import defaultTheme from '../../../../theme';
 import HeaderLearningPage from '../../../../components/Header/HeaderLearningPage';
-
-const WritingSpace = () => {
+import axios from 'axios';
+const WritingSpace = ({exam}) => {
   const [inputText, setInputText] = useState('');
 
   const handleInputText = (text) => {
     setInputText(text);
   };
 
-  const handleButtonPress = () => {
-    Alert.alert('Submit');
+  const apiUrl = 'http://14.161.10.40:14024/api/v1/llm/grade'
+  const dataWriting = {
+    Question: exam.test,
+    Answer: inputText
+  }
+
+  const handleButtonPress = async() => {
+    console.log("Vo day")
+    console.log(dataWriting)
+    const response = await axios.post(apiUrl, dataWriting, {headers: {
+      'Content-Type': 'application/json',
+      'public-key': 'vuadev007'
+    }})
+    console.log(response.data.result)
+    Alert.alert(response.result)
+
   };
 
   return (
@@ -26,7 +40,10 @@ const WritingSpace = () => {
         style={{ borderWidth: 1, padding: 10, marginBottom: 10, backgroundColor: 'white', minHeight: 100}}
       />
       <Button title="Submit" onPress={handleButtonPress} color = {defaultTheme.colors.button}/>
-      <View style = {{backgroundColor: 'white', height: 2, width: '100%'}}/>
+      <View style = {{backgroundColor: 'white', height: 2, width: '100%', marginBottom: 20}}/>
+      
+      <Text style={{ color: defaultTheme.colors.word }}>{exam.test}</Text>
+      {exam.image && (<Image source={{ uri: exam.image[0] }} style={{ width: '100%', aspectRatio: 1.5 }} resizeMode="contain" /> )}
     </View>
   );
 };
@@ -56,9 +73,7 @@ const WritingWorkspace = () => {
             keyboardShouldPersistTaps="handled"
           >
             <View style={{ ...defaultTheme.basic, height: '100%' }}>
-              <WritingSpace />
-              <Text style={{ color: defaultTheme.colors.word }}>{exam.test}</Text>
-              {exam.image && (<Image source={{ uri: exam.image[0] }} style={{ width: '100%', aspectRatio: 1.5 }} resizeMode="contain" /> )}
+              <WritingSpace exam = {exam}/>
             </View>
           </ScrollView>
         </KeyboardAvoidingView>

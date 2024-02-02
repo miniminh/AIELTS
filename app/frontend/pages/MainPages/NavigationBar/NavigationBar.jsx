@@ -32,7 +32,7 @@ export default function NavigationBar() {
         },
         headerShown: false,
         tabBarActiveTintColor: defaultTheme.colors.secondary, // Change the active icon color
-        tabBarInactiveTintColor: 'gray',
+        tabBarInactiveTintColor: 'white',
       })}
     >
       <Tab.Screen name="Home" component={StackNavigatorHome} />

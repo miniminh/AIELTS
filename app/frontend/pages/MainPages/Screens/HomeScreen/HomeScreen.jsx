@@ -10,7 +10,7 @@ function HomeScreen() {
   return (
     <View style = {{height: '100%'}}> 
       <Header />
-      <ScrollView>
+      <ScrollView >
         <View style = {{padding: 8 }}>
           <Welcome userInformation={data} color = {defaultTheme.colors.word} /> 
           <ChooseSection color = "white"/>
