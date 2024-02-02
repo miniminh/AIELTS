@@ -1,13 +1,12 @@
-module github.com/miniminh/AIELTS/tree/main/app/backend
+module github.com/miniminh/AIELTS/tree/main/app/backend/reading
 
 go 1.21.6
 
 require (
 	github.com/gin-gonic/gin v1.9.1
-	github.com/joho/godotenv v1.5.1
 	github.com/miniminh/AIELTS/tree/main/app/backend/database v0.0.0-00010101000000-000000000000
-	github.com/miniminh/AIELTS/tree/main/app/backend/reading v0.0.0-00010101000000-000000000000
 	github.com/miniminh/AIELTS/tree/main/app/backend/user v0.0.0-00010101000000-000000000000
+	go.mongodb.org/mongo-driver v1.13.1
 )
 
 require (
@@ -36,7 +35,6 @@ require (
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
-	go.mongodb.org/mongo-driver v1.13.1 // indirect
 	golang.org/x/arch v0.3.0 // indirect
 	golang.org/x/crypto v0.18.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
@@ -47,8 +45,6 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/miniminh/AIELTS/tree/main/app/backend/database => ./database
+replace github.com/miniminh/AIELTS/tree/main/app/backend/database => ../database
 
-replace github.com/miniminh/AIELTS/tree/main/app/backend/user => ./user
-
-replace github.com/miniminh/AIELTS/tree/main/app/backend/reading => ./reading
+replace github.com/miniminh/AIELTS/tree/main/app/backend/user => ../user
