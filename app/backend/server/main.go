@@ -9,6 +9,7 @@ import (
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/listening"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/reading"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/speaking"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/writing"
 )
@@ -49,5 +50,6 @@ func main() {
 	reading.CreateRouting(router)
 	writing.CreateRouting(router)
 	listening.CreateRouting(router)
+	speaking.CreateRouting(router)
 	router.Run()
 }
