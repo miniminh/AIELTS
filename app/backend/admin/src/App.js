@@ -79,7 +79,7 @@ function App() {
         <select value={selectedTag} onChange={handleTagChange}>
           <option value="readings">readings</option>
           <option value="speakings">speakings</option>
-          <option value="writtings">writtings</option>
+          <option value="writings">writings</option>
           <option value="listenings">listenings</option>
         </select>
         <button onClick={handleSendData}>Send Data</button>

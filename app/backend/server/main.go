@@ -1,13 +1,14 @@
 package main
 
 import (
+	"log"
+	"os"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/reading"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
-	"log"
-	"os"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/writing"
 )
 
 func init() {
@@ -31,9 +32,9 @@ func CORSMiddleware() gin.HandlerFunc {
 		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, origin")
 		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, DELETE, GET, PUT, OPTIONS")
 		if c.Request.Method == "OPTIONS" {
-            c.AbortWithStatus(200)
-            return
-        }
+			c.AbortWithStatus(200)
+			return
+		}
 		c.Next()
 	}
 }
@@ -44,5 +45,6 @@ func main() {
 	router.Use(CORSMiddleware())
 	user.CreateRouting(router)
 	reading.CreateRouting(router)
+	writing.CreateRouting(router)
 	router.Run()
 }
