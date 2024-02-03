@@ -25,9 +25,23 @@ func init() {
 	}
 }
 
+func CORSMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, origin")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, DELETE, GET, PUT, OPTIONS")
+		if c.Request.Method == "OPTIONS" {
+            c.AbortWithStatus(200)
+            return
+        }
+		c.Next()
+	}
+}
+
 func main() {
 	router := gin.Default()
 	database.Connect()
+	router.Use(CORSMiddleware())
 	user.CreateRouting(router)
 	reading.CreateRouting(router)
 	router.Run()

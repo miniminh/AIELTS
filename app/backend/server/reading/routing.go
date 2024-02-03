@@ -18,7 +18,7 @@ func CreateRouting(router *gin.Engine) {
 	router.Use(user.AuthMiddleware)
 	reading := router.Group("/readings")
 	{
-		reading.GET("/", FindReading)
-		reading.POST("/", AddReading)
+		reading.GET("", FindReading)
+		reading.POST("", AddReading)
 	}
 }
