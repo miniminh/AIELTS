@@ -9,6 +9,7 @@ function App() {
   const [title, setTitle] = useState('');
   const [band, setBand] = useState('');
   const [answer, setAnswer] = useState('');
+  const [mediaFile, setMediaFile] = useState('');
   const handleTagChange = (event) => {
     setSelectedTag(event.target.value);
     console.log(event.target.value)
@@ -25,6 +26,10 @@ function App() {
     setAnswer(event.target.value);
   };
 
+  const handleMediaChange = (event) => {
+    setMediaFile(event.target.value);
+  };
+
   const handleSendData = () => {
     const answerList = answer.split(', ');
 
@@ -33,7 +38,8 @@ function App() {
       title: title,
       band: band,
       passages: value,
-      answer: answerList
+      answer: answerList,
+      audio: mediaFile
     };
 
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmQ5MTBkMDczMzhlMjVkYjM1NGQyOSIsInVzZXJuYW1lIjoibHRwIn0.LBF65aU6gF-rj27IGpp525gwe0gkDubcWbeKv21MOcQ';
@@ -74,6 +80,14 @@ function App() {
             placeholder="Enter answer (separated by commas)"
             value={answer}
             onChange={handleAnswerChange}
+          /> : null
+        }
+        {(selectedTag === "listenings") ?
+          <input
+            type="text"
+            placeholder="Audio url"
+            value={mediaFile}
+            onChange={handleMediaChange}
           /> : null
         }
         <select value={selectedTag} onChange={handleTagChange}>

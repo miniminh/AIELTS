@@ -3,9 +3,11 @@ package main
 import (
 	"log"
 	"os"
+
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/listening"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/reading"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/writing"
@@ -46,5 +48,6 @@ func main() {
 	user.CreateRouting(router)
 	reading.CreateRouting(router)
 	writing.CreateRouting(router)
+	listening.CreateRouting(router)
 	router.Run()
 }
