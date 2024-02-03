@@ -11,6 +11,7 @@ function App() {
   const [answer, setAnswer] = useState('');
   const handleTagChange = (event) => {
     setSelectedTag(event.target.value);
+    console.log(event.target.value)
   };
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -67,12 +68,14 @@ function App() {
           value={band}
           onChange={handleBandChange}
         />
-        <input
-          type="text"
-          placeholder="Enter answer (separated by commas)"
-          value={answer}
-          onChange={handleAnswerChange}
-        />
+        {(selectedTag === "readings" || selectedTag === "listenings") ?
+          <input
+            type="text"
+            placeholder="Enter answer (separated by commas)"
+            value={answer}
+            onChange={handleAnswerChange}
+          /> : null
+        }
         <select value={selectedTag} onChange={handleTagChange}>
           <option value="readings">readings</option>
           <option value="speakings">speakings</option>
