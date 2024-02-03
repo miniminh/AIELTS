@@ -1,9 +1,6 @@
 package main
 
 import (
-	"log"
-	"os"
-
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
@@ -12,6 +9,8 @@ import (
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/speaking"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/writing"
+	"log"
+	"os"
 )
 
 func init() {
@@ -46,10 +45,12 @@ func main() {
 	router := gin.Default()
 	database.Connect()
 	router.Use(CORSMiddleware())
+
 	user.CreateRouting(router)
 	reading.CreateRouting(router)
 	writing.CreateRouting(router)
 	listening.CreateRouting(router)
 	speaking.CreateRouting(router)
+
 	router.Run()
 }
