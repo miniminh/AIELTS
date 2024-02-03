@@ -1,9 +1,10 @@
 const defaultTheme = {
   colors: {
-    primary: '#1F1F39',
-    secondary: '#3D5CFF',
+    primary: '#02303C',
+    secondary: '#1D7874',
     word : 'white',
-    button: 'orange'
+    button: '#B5FFB1',
+    background: '#02404F'
   },
   typography: {
     small: 16,
@@ -24,11 +25,11 @@ const defaultTheme = {
     height: 65
   },
   basic: {
-    padding: 8,
-    gap: 8
+    padding: 16,
+    gap: 16
   },
   defaultPage: {
-    backgroundColor: '#1F1F39',
+    backgroundColor: '#02303C',
     height: '100%'
   }
 };

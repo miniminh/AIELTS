@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native';
-
+import Updating from '../../../../components/Updating/Updating';
+import Header from '../../../../components/Header/Header';
 import defaultTheme from '../../../../theme';
 function DiscoverScreen() {
   return (
     <View style = {{...defaultTheme.defaultPage}}>
-      <Text style = {{color: defaultTheme.colors.word}}>Updating</Text>
+      <Header />
+      <Updating />
     </View>
   )
 }

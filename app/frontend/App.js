@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
     flex: 1,
-    backgroundColor: defaultTheme.colors.secondary,
+    backgroundColor: defaultTheme.colors.background,
     fontSize: defaultTheme.typography.fontSize,
   },
 });

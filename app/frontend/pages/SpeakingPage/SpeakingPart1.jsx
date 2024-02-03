@@ -1,6 +1,9 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-
+import { View, Text, ScrollView } from 'react-native'
+import React, {useState} from 'react'
+import HeaderLearningPage from '../../components/Header/HeaderLearningPage'
+import { useNavigation } from '@react-navigation/native'
+import defaultTheme from '../../theme'
+import ChooseExamSpeaking from './ChooseExamSpeaking'
 const mockdata = {
   data: [
     {
@@ -14,8 +17,19 @@ const mockdata = {
 }
 const SpeakingPart1 = () => {
   return (
-    <View>
-      <Text>SpeakingPart1</Text>
+    <View style = {{backgroundColor: defaultTheme.colors.primary, height: '100%'}}>  
+
+      <HeaderLearningPage name = 'Speaking Part 1' />
+
+      <ScrollView>
+        <View style = {{...defaultTheme.basic, flex: 1}}>
+          <Text style = {{color: defaultTheme.colors.word, fontSize: defaultTheme.typography.medium}}>Please choose the test</Text>
+          {mockdata.data.map((test, index)=> (
+            <ChooseExamSpeaking key = {index} data = {test} />
+          ))}
+        </View>
+      </ScrollView>
+
     </View>
   )
 }

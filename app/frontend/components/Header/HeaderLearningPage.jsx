@@ -14,7 +14,7 @@ const HeaderLearningPage = ({name}) => {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      backgroundColor: defaultTheme.colors.secondary,
+      backgroundColor: defaultTheme.colors.background,
       height: defaultTheme.header.height,
       paddingLeft: 8,
       paddingRight: 8

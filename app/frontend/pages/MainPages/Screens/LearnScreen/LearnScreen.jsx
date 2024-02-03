@@ -1,9 +1,12 @@
 import { View, Text } from 'react-native';
-
+import Header from '../../../../components/Header/Header';
+import Updating from '../../../../components/Updating/Updating';
+import defaultTheme from '../../../../theme';
 function LearnScreen() {
   return (
-    <View>
-      <Text>Learn Screen</Text>
+    <View style = {{...defaultTheme.defaultPage}}>
+      <Header />
+      <Updating />
     </View>
   )
 }

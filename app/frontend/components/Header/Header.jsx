@@ -9,9 +9,8 @@ const data = {
 }
 export default function Header() {
   return (
-    <View style = {{padding: 5, paddingLeft: 7, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', backgroundColor: defaultTheme.colors.secondary, height: defaultTheme.header.height }}>
+    <View style = {{ paddingLeft: 7, display: 'flex', justifyContent: 'space-between', flexDirection: 'row', backgroundColor: defaultTheme.colors.background, height: defaultTheme.header.height }}>
       <Points point = {data} />
-      <AlertSide/>
     </View>
   )
 }

@@ -8,10 +8,10 @@ const data = {
 }
 function HomeScreen() {
   return (
-    <View style = {{height: '100%'}}> 
+    <View style = {{height: '100%', backgroundColor: defaultTheme.colors.primary}}> 
       <Header />
       <ScrollView >
-        <View style = {{padding: 8 }}>
+        <View style = {{padding: 16 }}>
           <Welcome userInformation={data} color = {defaultTheme.colors.word} /> 
           <ChooseSection color = "white"/>
         </View>

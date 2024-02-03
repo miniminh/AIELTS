@@ -48,8 +48,8 @@ const Section = ({iconName, sectionName}) => {
       <View>
         <TouchableOpacity onPress = {() => handlePress(sectionName)}>      
           <View style={{ padding: 10 }}>
-            <View style = {{backgroundColor: defaultTheme.colors.button, borderRadius: 90, padding: 10}}>
-              <Ionicons name="caret-forward-sharp" size={24} color="white"/>
+            <View style = {{backgroundColor: defaultTheme.colors.button, borderRadius: 90, padding: 10, display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'center'}}>
+              <Ionicons style = {{ textAlign: 'center'}} name="caret-forward-sharp" size={24} color="black"/>
             </View>
           </View>
         </TouchableOpacity>
@@ -66,9 +66,6 @@ const ChooseSection = ({color}) => {
       {sections.map((section, index) => (
         <Section key={index} iconName={section.icon} sectionName={section.section} />
       ))}
-
-      
-      
     </View>
   )
 }
