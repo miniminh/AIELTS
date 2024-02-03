@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"os"
 	"log"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/database"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 

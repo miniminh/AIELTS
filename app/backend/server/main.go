@@ -3,9 +3,9 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/database"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/user"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/reading"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/reading"
 	"os"
 	"log"
 )

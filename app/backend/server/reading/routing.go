@@ -2,9 +2,9 @@ package reading
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/database"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
 	"go.mongodb.org/mongo-driver/mongo"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/user"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
 )
 
 var Collection *mongo.Collection
