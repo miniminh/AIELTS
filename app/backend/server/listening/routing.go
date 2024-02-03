@@ -1,4 +1,4 @@
-package reading
+package listening
 
 import (
 	"github.com/gin-gonic/gin"
@@ -10,15 +10,15 @@ import (
 var Collection *mongo.Collection
 
 func loadCollection() {
-	Collection = database.Database.Collection("Reading")
+	Collection = database.Database.Collection("Listening")
 }
 
 func CreateRouting(router *gin.Engine) {
 	loadCollection()
 	router.Use(user.AuthMiddleware)
-	reading := router.Group("/readings")
+	reading := router.Group("/listenings")
 	{
-		reading.GET("", FindReading)
-		reading.POST("", AddReading)
+		reading.GET("", FindListening)
+		reading.POST("", AddListening)
 	}
 }

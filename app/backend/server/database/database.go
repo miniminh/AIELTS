@@ -2,11 +2,11 @@ package database
 
 import (
 	"context"
-	"os"
-	"log"
 	"fmt"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"log"
+	"os"
 )
 
 var Database *mongo.Database

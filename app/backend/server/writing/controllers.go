@@ -1,4 +1,4 @@
-package reading
+package writing
 
 import (
 	"context"
@@ -8,16 +8,16 @@ import (
 	"net/http"
 )
 
-func FindReading(c *gin.Context) {
-	readings, err := Collection.Find(context.TODO(), bson.D{})
+func FindWriting(c *gin.Context) {
+	writings, err := Collection.Find(context.TODO(), bson.D{})
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error: " + err.Error()})
 		log.Fatal(err)
 		return
 	}
 
-	var result []Reading
-	err = readings.All(c.Request.Context(), &result)
+	var result []Writing
+	err = writings.All(c.Request.Context(), &result)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error: " + err.Error()})
 		log.Fatal(err)
@@ -27,19 +27,19 @@ func FindReading(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": result})
 }
 
-func AddReading(c *gin.Context) {
-	var reading Reading
-	if err := c.ShouldBindJSON(&reading); err != nil {
+func AddWriting(c *gin.Context) {
+	var writing Writing
+	if err := c.ShouldBindJSON(&writing); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request body!"})
 		return
 	}
 
-	_, createdErr := Collection.InsertOne(context.TODO(), reading)
+	_, createdErr := Collection.InsertOne(context.TODO(), writing)
 	if createdErr != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error: " + createdErr.Error()})
 		log.Fatal(createdErr)
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Reading task created successfully!"})
+	c.JSON(http.StatusOK, gin.H{"message": "Writing task created successfully!"})
 }
