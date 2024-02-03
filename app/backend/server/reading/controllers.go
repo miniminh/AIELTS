@@ -16,7 +16,15 @@ func FindReading(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": readings})
+	var result []Reading
+	err = readings.All(c.Request.Context(), &result)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error: " + err.Error()})
+		log.Fatal(err)
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": result})
 }
 
 func AddReading(c *gin.Context) {
