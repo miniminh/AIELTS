@@ -1,11 +1,11 @@
 package reading
 
 import (
+	"context"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
-	"net/http"
 	"log"
-	"context"
+	"net/http"
 )
 
 func FindReading(c *gin.Context) {

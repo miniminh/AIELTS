@@ -4,10 +4,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/reading"
-	"os"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
 	"log"
+	"os"
 )
 
 func init() {
@@ -15,13 +15,13 @@ func init() {
 	if err != nil {
 		log.Fatal("No setting in .env.local found!")
 	}
- 
+
 	mode := os.Getenv("GIN_MODE")
 	if mode == "release" {
-	   	err = godotenv.Load()
-	   	if err != nil {
+		err = godotenv.Load()
+		if err != nil {
 			log.Fatal("No setting in .env found in Release mode!")
-	   	}
+		}
 	}
 }
 

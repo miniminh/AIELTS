@@ -2,10 +2,10 @@ package user
 
 import (
 	"github.com/gin-gonic/gin"
-	"os"
-	"log"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
 	"go.mongodb.org/mongo-driver/mongo"
+	"log"
+	"os"
 )
 
 var SecretKey []byte
@@ -25,7 +25,7 @@ func loadCollection() {
 func CreateRouting(router *gin.Engine) {
 	loadSecretKey()
 	loadCollection()
-	auth := router.Group("/auth") 
+	auth := router.Group("/auth")
 	{
 		auth.GET("/", AuthMiddleware, Verify)
 		auth.POST("/register", Register)

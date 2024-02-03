@@ -81,7 +81,7 @@ func Verify(c *gin.Context) {
 func generateToken(user User) string {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"username": user.Username,
-		"id": user.ID.Hex(),
+		"id":       user.ID.Hex(),
 	})
 
 	tokenString, err := token.SignedString(SecretKey)
@@ -101,7 +101,7 @@ func Register(c *gin.Context) {
 	}
 
 	userExist, _ := usernameExists(user.Username)
-	if userExist != http.StatusNotFound{
+	if userExist != http.StatusNotFound {
 		c.JSON(http.StatusNotAcceptable, gin.H{"error": "Username already exists!"})
 		return
 	}
@@ -124,7 +124,7 @@ func Register(c *gin.Context) {
 	}
 
 	user.ID = createdUser.InsertedID.(primitive.ObjectID)
-	c.JSON(http.StatusOK, gin.H{"message": "User registered successfully", "token" : generateToken(user)})
+	c.JSON(http.StatusOK, gin.H{"message": "User registered successfully", "token": generateToken(user)})
 }
 
 func Login(c *gin.Context) {
@@ -153,5 +153,5 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "User logged in successfully", "token" : generateToken(user)})
+	c.JSON(http.StatusOK, gin.H{"message": "User logged in successfully", "token": generateToken(user)})
 }

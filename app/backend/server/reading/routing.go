@@ -3,8 +3,8 @@ package reading
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
-	"go.mongodb.org/mongo-driver/mongo"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 var Collection *mongo.Collection
@@ -16,7 +16,7 @@ func loadCollection() {
 func CreateRouting(router *gin.Engine) {
 	loadCollection()
 	router.Use(user.AuthMiddleware)
-	reading := router.Group("/readings") 
+	reading := router.Group("/readings")
 	{
 		reading.GET("/", FindReading)
 		reading.POST("/", AddReading)
