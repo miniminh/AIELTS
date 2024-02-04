@@ -1,4 +1,4 @@
-import { View, Text, Image, Button, StyleSheet, Alert, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, Image, Button, StyleSheet, Alert, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Audio } from 'expo-av';
 import { useRoute } from '@react-navigation/native';
@@ -45,7 +45,7 @@ const SpeakingSpace = ({exam}) => {
     let apiUrlScore = 'http://14.161.10.40:14024/api/v1/llm/grade'
     let uriParts = audioUri.split('.')
     let fileType = uriParts[uriParts.length - 1]
-    /*try*/ {
+    try {
       const formData = new FormData();
       formData.append('input', {
         uri: audioUri,
@@ -74,14 +74,14 @@ const SpeakingSpace = ({exam}) => {
         'Content-Type': 'application/json',
         'public-key': 'vuadev007'
       }})
-      console.log(getGrade.data.result)
-      Alert.alert(response.result)
-      return getGrade.data.result
+      const score = getGrade.data.result;
+      const formatScore = parseFloat(score).toFixed(2)
+      Alert.alert(formatScore)
+      return formatScore
 
-      console.log('Recording sent successfully:', response.time_elapsed);
-    } /*catch (error) {
+    } catch (error) {
       console.error('Error sending recording to backend:', error);
-    } */
+    } 
   }
   function getDurationFormatted(milliseconds) {
     const minutes = milliseconds / 1000 / 60;
@@ -109,17 +109,38 @@ const SpeakingSpace = ({exam}) => {
   return (
     <View style={{...defaultTheme.defaultPage}}>
 
-    <View style = {{...defaultTheme.basic}}>
+    <View style = {{gap: 8}}>
       <Text style = {{color: defaultTheme.colors.word, fontWeight: defaultTheme.fontWeight.bold, fontSize: defaultTheme.typography.large}}>How to use?</Text>
       <Text style = {{color: defaultTheme.colors.word}}>Click the "Start Recording" button</Text>
       <Text style = {{color: defaultTheme.colors.word}}>Then, say any English sentence. </Text>
       <Text style = {{color: defaultTheme.colors.word}}>Click the "Stop recording" button when you finish  </Text>
       <Text style = {{color: defaultTheme.colors.word}}>We will provide a score depends on your pronunciation</Text>
     </View>
-    <Button title={recording ? 'Stop Recording' : 'Start Recording\n\n\n'} onPress={recording ? stopRecording : startRecording} />
+    <View style = {{alignItems: 'center', justifyContent: 'center', padding: 20}}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={recording ? stopRecording : startRecording}
+      >
+        <Text style={{ color: 'black', fontSize: 16, textAlign: 'center' }}>
+          {recording ? 'Stop Recording' : 'Start Recording'}
+        </Text>
+      </TouchableOpacity>
+    </View>
+
     {getRecordingLines()}
-    <Button title={recordings.length > 0 ? '\n\n\nClear Recordings' : ''} onPress={clearRecordings} />
-    <Text style={{ color: defaultTheme.colors.word }}>{exam.question}</Text>
+
+    {recordings.length > 0 && (
+      <View style = {{justifyContent: 'center', alignItems: 'center',  padding: 20}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={clearRecordings}
+        >
+          <Text style={styles.buttonText}>Clear Recordings</Text>
+        </TouchableOpacity>
+      </View>
+    )}
+
+    <Text style={{ color: defaultTheme.colors.word, fontSize: defaultTheme.typography.large, textAlign: 'center' }}>Question: {exam.question}</Text>
       {exam.image && (<Image source={{ uri: exam.image[0] }} style={{ width: '100%', aspectRatio: 1.5 }} resizeMode="contain" /> )}
   </View>
 
@@ -181,5 +202,14 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 15,
     color: 'white'
+  },
+  button: {
+    backgroundColor: defaultTheme.colors.button,
+    height: 50,
+    width: 200,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
+
   }
 });

@@ -58,7 +58,7 @@ const ChooseExam = ({data}) => {
 
         <Text numberOfLines={isExpanded ? 0 : 2} style = {{fontSize: defaultTheme.typography.medium, color: defaultTheme.colors.word, fontWeight: defaultTheme.fontWeight.note}}>{data.test}</Text>  
         <TouchableOpacity onPress={toggleExpand}>
-          <Text style={{ color: 'orange' }}>{isExpanded ? 'Return' : '...'}</Text>
+          <Text style={{ color: 'black' }}>{isExpanded ? 'Return' : 'Read more'}</Text>
         </TouchableOpacity>
           
         </View>

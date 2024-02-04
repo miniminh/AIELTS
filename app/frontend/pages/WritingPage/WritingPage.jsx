@@ -3,6 +3,7 @@ import React from 'react'
 import defaultTheme from '../../theme'
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'
+import ViewPage from '../../components/ViewPage.jsx'
 import HeaderLearningPage from '../../components/Header/HeaderLearningPage';
 const sectionWritings = [
   {
@@ -37,8 +38,8 @@ const ChooseWritingSection = ({sectionWriting, contentWriting}) => {
         <View>
           <TouchableOpacity onPress = {() => handlePress(sectionWriting)}>      
             <View style={{ padding: 10 }}>
-              <View style = {{backgroundColor: 'orange', borderRadius: 90, padding: 10}}>
-                <Ionicons name="caret-forward-sharp" size={24} color="white"/>
+              <View style = {{backgroundColor: defaultTheme.colors.button, borderRadius: 90, padding: 10}}>
+                <Ionicons name="caret-forward-sharp" size={24} color="black"/>
               </View>
             </View>
           </TouchableOpacity>
@@ -56,7 +57,7 @@ const ChooseWritingSection = ({sectionWriting, contentWriting}) => {
 const WritingPage = () => {
 
   return (
-    <View style = {{backgroundColor: defaultTheme.colors.primary, height: '100%'}}>  
+    <ViewPage>  
       <HeaderLearningPage name = 'Writing'/>
       <View style = {{...defaultTheme.basic}}>
         <Text style = {{color: defaultTheme.colors.word, padding: 8, fontSize: defaultTheme.typography.medium}}>Please choose the section</Text>
@@ -64,7 +65,7 @@ const WritingPage = () => {
           <ChooseWritingSection key={index} sectionWriting={section.name} contentWriting={section.content} />
         ))}
       </View>
-    </View>
+    </ViewPage>
   )
 }
 

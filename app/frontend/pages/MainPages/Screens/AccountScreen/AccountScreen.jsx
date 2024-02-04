@@ -5,11 +5,10 @@ import Updating from '../../../../components/Updating/Updating';
 import ViewPage from '../../../../components/ViewPage';
 function AccountScreen() {
   return (
-    <View style = {{...defaultTheme.defaultPage}}>
+    <ViewPage>
       <Header />
       <Updating />
-    </View>
-
+    </ViewPage>
   )
 }
 

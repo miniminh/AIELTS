@@ -1,4 +1,4 @@
-import { View, Text, Image, Button, Alert, TextInput, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, Image, Button, Alert, TextInput, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import defaultTheme from '../../../../theme';
@@ -39,10 +39,23 @@ const WritingSpace = ({exam}) => {
         value={inputText}
         style={{ borderWidth: 1, padding: 10, marginBottom: 10, backgroundColor: 'white', minHeight: 100}}
       />
-      <Button title="Submit" onPress={handleButtonPress} color = {defaultTheme.colors.button}/>
-      <View style = {{backgroundColor: 'white', height: 2, width: '100%', marginBottom: 20}}/>
+      <View style = {{justifyContent: 'center', alignItems: 'center', padding: 20}}>
+        <TouchableOpacity
+          style={{ 
+            backgroundColor: defaultTheme.colors.button,
+            height: 50,
+            width: 200,
+            borderRadius: 5,
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          onPress={handleButtonPress}
+        >
+        <Text style={{}}>Submit</Text>
+        </TouchableOpacity>
+      </View>
       
-      <Text style={{ color: defaultTheme.colors.word }}>{exam.test}</Text>
+      <Text style={{ color: defaultTheme.colors.word, paddingBottom: 15 }}>{exam.test}</Text>
       {exam.image && (<Image source={{ uri: exam.image[0] }} style={{ width: '100%', aspectRatio: 1.5 }} resizeMode="contain" /> )}
     </View>
   );
