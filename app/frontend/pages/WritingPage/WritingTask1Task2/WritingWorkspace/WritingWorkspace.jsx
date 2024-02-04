@@ -25,7 +25,7 @@ const WritingSpace = ({exam}) => {
       'public-key': 'vuadev007'
     }})
     console.log(response.data.result)
-    Alert.alert(response.result)
+    Alert.alert(`Your score is: ${response.data.result}`)
 
   };
 
