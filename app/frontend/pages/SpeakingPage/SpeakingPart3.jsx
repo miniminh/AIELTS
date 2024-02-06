@@ -7,10 +7,13 @@ import ChooseExamSpeaking from './ChooseExamSpeaking'
 const mockdata = {
   data: [
     {
-      question: "What is your job?"
+      question: "Do you think adverts have a big impact on what people buy?"
     },
     {
-      question: "Where do you work"
+      question: "Are adverts useful for people?"
+    },
+    {
+      question: 'Do you think advertising aimed at children is acceptable?'
     }
     
   ]

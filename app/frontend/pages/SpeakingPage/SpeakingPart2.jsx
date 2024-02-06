@@ -7,10 +7,13 @@ import ChooseExamSpeaking from './ChooseExamSpeaking'
 const mockdata = {
   data: [
     {
-      question: "What is your job?"
+      question: "Describe a piece of art you like"
     },
     {
-      question: "Where do you work"
+      question: "Describe a book you have recently read"
+    },
+    {
+      question: "Describe a piece of advice you recently received"
     }
     
   ]

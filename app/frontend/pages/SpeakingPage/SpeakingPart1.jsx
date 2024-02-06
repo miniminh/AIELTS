@@ -10,7 +10,10 @@ const mockdata = {
       question: "What is your job?"
     },
     {
-      question: "Where do you work"
+      question: "Where do you work?"
+    },
+    {
+      question: "Do you have any pets?"
     }
     
   ]
