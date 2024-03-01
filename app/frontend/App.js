@@ -4,10 +4,16 @@ import MainPage from './pages/MainPages/MainPage';
 import defaultTheme from './theme';
 import LoginPage from './pages/LoginPage/LoginPage';
 import StackNavigatorLogin from './pages/LoginPage/StackNavigatorLogin';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+
 export default function App() {
   return (
     <View style = {styles.container}>
       <MainPage />
+      <BannerAd
+        unitId={TestIds.ADAPTIVE_BANNER}
+        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+      />
     </View>
   );
 }

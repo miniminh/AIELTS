@@ -35,8 +35,12 @@
         "origin": false
       },
       "eas": {
-        "projectId": "bfdba1e2-5b7b-4812-9169-8f3e6d8aeb8e"
+        "projectId": "6bb3cccb-2332-469a-a58e-50925bf19d77"
       }
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-3713543797969672~5624052063",
+    "ios_app_id": "ca-app-pub-3713543797969672~4310970393"
   }
 }
