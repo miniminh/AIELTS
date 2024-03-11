@@ -1,8 +1,16 @@
 import { View, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import defaultTheme from '../../../../theme'
 import { Ionicons } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useIsFocused  } from '@react-navigation/native';
+import { InterstitialAd, AdEventType, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-3713543797969672~5624052063';
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  keywords: ['fashion', 'clothing'],
+});
+
 const sections = [
   {
     section: 'Reading',
@@ -22,8 +30,11 @@ const sections = [
   }
 ]
 const Section = ({iconName, sectionName}) => {
+  const isFocused = useIsFocused();
   const navigation = useNavigation()
   const handlePress = (section) => {
+    interstitial.show();
+
     switch (section) {
       case 'Reading':
         navigation.navigate('Reading');
@@ -38,6 +49,25 @@ const Section = ({iconName, sectionName}) => {
         navigation.navigate('Speaking')
     }
   }
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+      setLoaded(true);
+    });
+
+    if(isFocused){ 
+      setLoaded(false)
+      interstitial.load();
+    }
+
+    return unsubscribe;
+  }, [isFocused]);
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <View style = {{display: 'flex', flexDirection: 'row', width: '100%', backgroundColor: defaultTheme.colors.secondary, justifyContent: 'space-between', alignItems: 'center', borderRadius: defaultTheme.border.radius}}>
       <View style = {{display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 16, gap: 8}}>
