@@ -14,7 +14,7 @@ services:
     build:
       context: server
     ports:
-      - "8080:8080"
+      - "5050:5050"
     restart: unless-stopped
     depends_on:
       - mongodb
