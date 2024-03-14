@@ -4,6 +4,7 @@ import defaultTheme from '../../theme'
 import axios from 'axios'
 import HeaderLearningPage from '../../components/Header/HeaderLearningPage'
 import { useNavigation } from '@react-navigation/native';
+import {AUTHENTICATION} from '@env'
 const RegisterPage = () => {
   const navigation = useNavigation()
   const [username, setUsername] = useState('')
@@ -11,7 +12,7 @@ const RegisterPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleRegister =  async () => {
-    const apiUrl = 'http://192.168.0.7:8000/register'
+    const apiUrl = AUTHENTICATION + 'register'
     const userRegister = {
       username: username,
       password: password
@@ -23,22 +24,15 @@ const RegisterPage = () => {
     } else if (password !== confirmPassword) {
       Alert.alert('Password incorrect')
       return
-    } else if (password === 'ahhidongoc') {
-      //Check if the username had before by calling API 
-      return 
-    }
-
+    } 
     try {
       const respone = await axios.post(apiUrl, userRegister)
-      if (respone.data.message === 'Hello world') {
-        Alert.alert(respone.data.message)
-        navigation.goBack()
-      } else {
-        Alert.alert(respone.data.message)
-      }
+        if (respone.status === 200) {
+        Alert.alert(respone.data.message);
+        navigation.navigate('Login')
+      } 
     } catch (error) {
-      console.error('Some error', error)
-
+      Alert.alert('Some error', error.response.data.error)
     }
     
   }

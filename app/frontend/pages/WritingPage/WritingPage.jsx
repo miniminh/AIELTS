@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'
 import ViewPage from '../../components/ViewPage.jsx'
 import HeaderLearningPage from '../../components/Header/HeaderLearningPage';
+
 const sectionWritings = [
   {
     name: 'Writing Task 1',

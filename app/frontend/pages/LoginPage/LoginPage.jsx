@@ -6,13 +6,16 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  Alert
 } from "react-native";
 
+import {AUTHENTICATION} from '@env'
 import axios from "axios";
 import React, {useState} from 'react'
 import defaultTheme from "../../theme";
 import { useNavigation } from '@react-navigation/native';
 import RegisterPage from "./RegisterPage";
+import * as SecureStore from 'expo-secure-store';
 const LoginPage = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState("");
@@ -20,7 +23,7 @@ const LoginPage = () => {
   const [backendMessage, setBackendMessage] = useState("");
 
   const handleLogin = async () => {
-    const apiURL = 'http://localhost:8080/auth/login'
+    const apiURL = AUTHENTICATION + 'login'
     const userData = {
       username: username,
       password: password
@@ -29,14 +32,13 @@ const LoginPage = () => {
       const response = await axios.post(apiURL, userData);
 
       if (response.status === 200) {
-        setBackendMessage(response.data.message)
-        console.log(response.data.message);
-      } else {
-        // Handle login failure
-        console.error('Login failed');
+        await SecureStore.setItemAsync('auth_token', response.data.token);
+        const token = await SecureStore.getItemAsync('auth_token');
+        navigation.navigate('Main')
       }
+      
     } catch (error) {
-      console.error('Error during login:', error);
+     Alert.alert(error.response.data.error)
     }
   };
   return (

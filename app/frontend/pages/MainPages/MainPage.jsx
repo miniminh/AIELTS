@@ -10,7 +10,7 @@ const navigationTheme = {
 export default function MainPage() {
   return (
     <View style = {{flex: 1, backgroundColor: defaultTheme.colors.primary}}>
-      <NavigationContainer theme = {navigationTheme}> 
+      <NavigationContainer theme = {navigationTheme} independent={true}> 
         <NavigationBar/>
       </NavigationContainer>
     </View>
