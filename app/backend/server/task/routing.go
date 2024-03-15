@@ -1,4 +1,4 @@
-package writing
+package task
 
 import (
 	"github.com/gin-gonic/gin"
@@ -10,15 +10,15 @@ import (
 var Collection *mongo.Collection
 
 func loadCollection() {
-	Collection = database.Database.Collection("Writing")
+	Collection = database.Database.Collection("Tasks")
 }
 
 func CreateRouting(router *gin.Engine) {
 	loadCollection()
 	router.Use(user.AuthMiddleware)
-	reading := router.Group("/writings")
+	reading := router.Group("/tasks")
 	{
-		reading.GET("", FindWriting)
-		reading.POST("", AddWriting)
+		reading.GET("", ListTasks)
+		reading.POST("", AddTask)
 	}
 }

@@ -4,11 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/database"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/server/listening"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/server/reading"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/server/speaking"
+	"github.com/miniminh/AIELTS/tree/main/app/backend/server/task"
 	"github.com/miniminh/AIELTS/tree/main/app/backend/server/user"
-	"github.com/miniminh/AIELTS/tree/main/app/backend/server/writing"
 	"log"
 	"os"
 )
@@ -47,10 +44,7 @@ func main() {
 	router.Use(CORSMiddleware())
 
 	user.CreateRouting(router)
-	reading.CreateRouting(router)
-	writing.CreateRouting(router)
-	listening.CreateRouting(router)
-	speaking.CreateRouting(router)
+	task.CreateRouting(router)
 
 	router.Run()
 }
