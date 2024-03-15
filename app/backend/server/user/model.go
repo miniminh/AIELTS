@@ -11,3 +11,9 @@ type User struct {
 	Password  string             `bson:"password"   json:"password"`
 	CreatedAt time.Time          `bson:"created_at" json:"created_at"`
 }
+
+type UserResult struct {
+	ID        primitive.ObjectID `bson:"_id,omitempty" json:"id"`
+	Username  string             `bson:"username"   json:"username"`
+	CreatedAt time.Time          `bson:"created_at" json:"created_at"`
+}
